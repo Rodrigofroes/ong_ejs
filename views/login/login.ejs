@@ -1,0 +1,36 @@
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <section class="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-2xl">
+        <article class="flex items-center justify-center p-6 md:p-8 bg-gray-200">
+            <figure class="flex-shrink-0">
+                <img src="/img/logo-login.png" class="h-80" alt="Logo-Unidos">
+            </figure>
+        </article>
+        <div class="hidden md:block w-px bg-gray-300"></div>
+        <article class="flex flex-col p-6 md:p-8">
+            <div class="mb-6 text-center">
+                <h1 class="text-2xl font-bold">BEM-VINDO</h1>
+            </div>
+            <form class="space-y-4">
+                <div>
+                    <label for="exampleInputEmail1" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input required type="email"
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div>
+                    <label for="exampleInputPassword1" class="block text-sm font-medium text-gray-700">Senha</label>
+                    <input required type="password"
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        id="exampleInputPassword1">
+                </div>
+                <div class="text-center">
+                    <button type="submit"
+                        class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Entrar</button>
+                </div>
+            </form>
+            <div class="mt-6 text-center">
+                <a href="login/cadastro" class="text-indigo-600 hover:text-indigo-900">Crie uma conta!</a>
+            </div>
+        </article>
+    </section>
+</body>

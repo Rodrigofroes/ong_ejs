@@ -1,7 +1,7 @@
 class homeController{
 
     screenHome(req, res){
-        res.render('home');
+        res.render('home', {layout: 'home'});
     }
 
 };

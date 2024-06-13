@@ -1,4 +1,5 @@
 const patrimonioModel = require("../model/patrimonioModel");
+const ProjetoModel = require("../model/projetoModel");
 
 class patrimonioController {
     
@@ -10,8 +11,9 @@ class patrimonioController {
     }
 
     async cadastroView(req, resp) {
-        resp.render("patrimonios/cadastro");
-        
+        let projeto = new ProjetoModel(); 
+        let listaProjeto = await projeto.listar();
+        resp.render("patrimonios/cadastro", {lista: listaProjeto});
     }
 
     async cadastrar(req, resp){
@@ -49,7 +51,9 @@ class patrimonioController {
     async alterarView(req, res) {
         let patrimonio = new patrimonioModel();
         patrimonio = await patrimonio.obter(req.params.id);
-        res.render('patrimonios/alterar', {patrimonio: patrimonio})
+        let projeto = new ProjetoModel(); 
+        let listaProjeto = await projeto.listar();
+        res.render('patrimonios/alterar', {patrimonio: patrimonio, lista: listaProjeto})
     }
 
     async alterar(req, resp){

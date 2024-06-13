@@ -1,4 +1,5 @@
 const eventoModel = require("../model/eventoModel");
+const ProjetoModel = require("../model/projetoModel");
 
 class eventoController {
     
@@ -10,8 +11,9 @@ class eventoController {
     }
 
     async cadastroView(req, resp) {
-        resp.render("eventos/cadastro");
-        
+        let projeto = new ProjetoModel(); 
+        let listaProjeto = await projeto.listar();
+        resp.render("eventos/cadastro", {lista: listaProjeto});
     }
 
     async cadastrar(req, resp){
@@ -50,7 +52,9 @@ class eventoController {
     async alterarView(req, res) {
         let evento = new eventoModel();
         evento = await evento.obter(req.params.id);
-        res.render('eventos/alterar', {evento: evento})
+        let projeto = new ProjetoModel(); 
+        let listaProjeto = await projeto.listar();
+        res.render('eventos/alterar', {evento: evento, lista: listaProjeto})
     }
 
     async alterar(req, resp){

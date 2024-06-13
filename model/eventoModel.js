@@ -50,7 +50,8 @@ class eventoModel {
     //função listar tudo
     async listar() {
 
-        let sql = "select e.id_evento, e.nome, e.descricao, e.data_inicio, e.data_fim, e.local, e.projeto_id, pro.nome AS nomePatrimonio from evento e inner join projetos pro on e.projeto_id = pro.id_projeto"
+        let sql = `select e.id_evento, e.nome, e.descricao, e.data_inicio, e.data_fim, e.local, e.projeto_id, pro.nome AS nomePatrimonio 
+                    from evento e inner join projetos pro on e.projeto_id = pro.id_projeto ORDER BY e.id_evento DESC`;
         let lista = [];
 
         let rows = await banco.ExecutaComando(sql)

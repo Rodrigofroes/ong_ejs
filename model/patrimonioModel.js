@@ -56,7 +56,7 @@ class patrimonioModel {
         }
 
         let sql = `select p.id_patrimonio, p.nome, p.descricao, p.quantidade, pro.nome AS nomeProjeto
-        from patrimonio p inner join projetos pro on p.projeto_id = pro.id_projeto ${sqlFiltro};`
+        from patrimonio p inner join projetos pro on p.projeto_id = pro.id_projeto ${sqlFiltro} ORDER BY p.id_patrimonio DESC;`
 
         let valores = [];
         if(sqlFiltro != ""){
@@ -81,7 +81,7 @@ class patrimonioModel {
     async listar() {
 
         let sql = `select p.id_patrimonio, p.nome, p.descricao, p.quantidade, p.projeto_id, pro.nome AS nomePatrimonio 
-                    from patrimonio p inner join projetos pro on p.projeto_id = pro.id_projeto;`
+                    from patrimonio p inner join projetos pro on p.projeto_id = pro.id_projeto ORDER BY p.id_patrimonio DESC;`
         let lista = [];
 
 

@@ -74,7 +74,7 @@ class produtoModel {
         }
 
         let sql = `select p.id_produto, p.nome, p.descricao, p.preco, p.quantidade, pro.nome AS nomeProjeto
-        from produto p inner join projetos pro on p.id_produto = pro.id_projeto ${sqlFiltro};`
+        from produto p inner join projetos pro on p.id_produto = pro.id_projeto ${sqlFiltro} ORDER BY p.id_produto DESC;`
 
         let valores = [];
         if(sqlFiltro != ""){
@@ -98,7 +98,7 @@ class produtoModel {
     //função listar tudo
     async listar() {
 
-        let sql = "select * from produto"
+        let sql = "select * from produto ORDER BY id_produto DESC"
         let lista = [];
  
 

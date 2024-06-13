@@ -30,8 +30,13 @@
         </div>
         <div>
             <div class="form-group">
-                <label for="patrimonioProjeto" class="form-label">Projeto Id</label>
-                <input type="text" class="form-control" id="patrimonioProjeto" name="patrimonioProjeto">
+                <label for="patrimonioProjeto" class="form-label">Projeto Id </label>
+                <select class="form-control" id="patrimonioProjeto" name="patrimonioProjeto">
+                    <option selected value="0">Selecione...</option>
+                    <% for(let i = 0; i<lista.length; i++) { %>
+                        <option value="<%= lista[i].projetoId %>"><%= lista[i].projetoId %> - <%= lista[i].projetoNome %></option>
+                    <% } %>
+                </select>
             </div>
         </div>
         <div>

@@ -1,14 +1,13 @@
-const UsuarioModel = require("../models/usuarioModel");
-
+const DoadorModel = require("../model/doadorModel");
 
 class AuthMiddleware {
 
     async verificarUsuarioLogado(req, res, next) {
-        if(req.cookies != undefined && req.cookies.usuarioLogado != null){
-            let usuarioId = req.cookies.usuarioLogado;
-            let usuario = new UsuarioModel();
-            usuario = await usuario.obter(usuarioId);
-            if(usuario != null && usuario.usuarioAtivo == 1) {
+        if(req.cookies != undefined && req.cookies.doadorLogado != null){
+            let doadorId = req.cookies.doadorLogado;
+            let doador = new DoadorModel();
+            doador = await doador.obter(doadorId);
+            if(doador != null) {
                 next();
             }
             else{

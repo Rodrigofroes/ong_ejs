@@ -156,8 +156,8 @@ class DoadorModel {
 
         if(rows.length > 0) {
             let row = rows[0];
-            return new DoadorModel(row[i]["id_doador"], row[i]["nome"], row[i]["CPF"], row[i]["RG"],
-                row[i]["sexo"], row[i]["email"], row[i]["senha"], row[i]["telefone"], row[i]["endereco"], row[i]["CEP"]);
+            return new DoadorModel(row["id_doador"], row["nome"], row["CPF"], row["RG"],
+                row["sexo"], row["email"], row["senha"], row["telefone"], row["endereco"], row["CEP"]);
         }
 
         return null;

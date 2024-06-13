@@ -10,6 +10,8 @@ const pedidoRoute = require("./routes/pedidoRoute");
 const pedidoPatrimonioRoute = require("./routes/pedidoPatrimonioRoute");
 const eventoRoute = require('./routes/eventoRoute');
 const patrimonioRoute = require('./routes/patrimonioRoute');
+const AuthMiddleware = require('./middlewares/authMiddleware');
+const cookieParser = require('cookie-parser');
 // Cria uma instância do aplicativo Express
 const app = express();
 
@@ -29,9 +31,15 @@ app.use(express.static("public"));
 // Usa o módulo express-ejs-layouts
 app.use(expressEjsLayout);
 
+app.use(cookieParser());
+
 //---- Configuções de Rotas existentes no nosso sistema ----
 app.use('/', homeRoute);
 app.use('/login', loginRoute);
+
+let auth = new AuthMiddleware();
+app.use(auth.verificarUsuarioLogado);
+
 app.use('/pagamento', pagamentoRoute);
 app.use('/produtos', produtoRoute);
 app.use("/pedidos", pedidoRoute);
